@@ -1,0 +1,29 @@
+.application {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#window {
+    width: 1000px;
+    height: 700px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+.menu {
+    width: 200px;
+    height: 500px;
+}
+
+.button {
+    margin-top: 10px;
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    border-color: black;
+    cursor: pointer;
+}
+
+.bus, .computer, .more, .flower, .eric, .rocet, .home, .car{
+    display: inline-table;
+}
