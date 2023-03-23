@@ -53,7 +53,7 @@ body {
     margin-top: 10px;
 }
 
-#button {
+#button, .input {
     text-decoration: none;
     display: inline-block;
     width: 140px;
@@ -86,6 +86,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
     cursor: pointer;
+}
+#clip {
+    background-position: center center;
+    background-size: cover;
 }
 #image {
     height: 133.33px;
