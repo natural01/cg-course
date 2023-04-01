@@ -133,7 +133,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CWindow.cpp" />
+    <ClCompile Include="GLFWInitializer.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="z.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CBaseWindow.cpp" />
+    <ClInclude Include="CWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
