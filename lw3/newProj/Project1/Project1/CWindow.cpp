@@ -1,6 +1,5 @@
 #include "CWindow.h"
 
-
 void Window::OnRunStart()
 {
 	m_startTime = std::chrono::steady_clock::now();
@@ -125,14 +124,19 @@ void Window::DrawSparkPlug()
 	glColor3f(0.628, 0.635, 0.642);
 	DrawRectangle(-0.01, 0.95, 0.05, 0.02);
 }
-void Window::DrawEngine()
+void Window::DrawEngine(int countOfEngine)
 {
-	DrawBody();
-	DrawConnectingRod();
-	DrawCylinder();
-	DrawShaft();
-	DrawValves();
-	DrawSparkPlug();
+	for (int i = 0; i < countOfEngine; i++)
+	{
+		MoveLeft(i);
+
+		DrawBody();
+		DrawConnectingRod();
+		DrawCylinder();
+		DrawShaft();
+		DrawValves();
+		DrawSparkPlug();
+	}
 }
 
 void Window::Draw(int width, int height)
@@ -148,11 +152,17 @@ void Window::Draw(int width, int height)
 	glViewport(0, 0, width, height);
 	SetupProjectionMatrix(width, height);
 
-	DrawEngine();
-
-	SetupModelViewMatrix(phase);
+	DrawEngine(2);
 
 	glFlush();
+}
+
+void Window::MoveLeft(int countOfEngine)
+{
+	const double widthofEngine = 1.0;
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glTranslated(0 - widthofEngine * countOfEngine, 0.0, 0.0);
 }
 
 void Window::SetupProjectionMatrix(int width, int height)

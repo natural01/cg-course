@@ -19,11 +19,11 @@ private:
 	static void DrawShaft();
 	static void DrawValves();
 	static void DrawSparkPlug();
-	static void DrawEngine();
+	static void DrawEngine(int countOfEngine);
 	void Draw(int width, int height);
 	static void SetupProjectionMatrix(int width, int height);
 	static void SetupModelViewMatrix(double phase);
-	static void Move();
+	static void MoveLeft(int countOfEngine);
 
 	std::chrono::steady_clock::time_point m_startTime;
 	const std::chrono::milliseconds ANIMATION_PERIOD = std::chrono::milliseconds{ 8000 };
