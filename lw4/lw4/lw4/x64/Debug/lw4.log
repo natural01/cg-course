@@ -1,0 +1,6 @@
+﻿  CWindow.cpp
+  lw4.cpp
+  Создание кода...
+x64\Debug\CFrame.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
+LINK : warning LNK4098: библиотека по умолчанию "MSVCRT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+  lw4.vcxproj -> D:\university\cg-cource\lw4\lw4\x64\Debug\lw4.exe
