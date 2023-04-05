@@ -2,8 +2,7 @@
 
 void Window::OnRunStart()
 {
-	// Задаем цвет очистки буфера кадра
-	glClearColor(1, 1, 0, 1);
+	glClearColor(1, 1, 1, 1);
 }
 
 void Window::Draw(int width, int height)
