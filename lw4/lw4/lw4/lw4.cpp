@@ -5,6 +5,6 @@
 int main()
 {
 	GLFWInitializer initGLFW;
-	Window window{ 800, 600, "lw4" };
-	window.Run();
+	Window *window = Window::GetInstance(1900, 1600, "lw4");
+	window->Run();
 }
