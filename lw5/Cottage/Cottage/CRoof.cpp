@@ -6,7 +6,7 @@ CRoof::CRoof(float x1, float y1, float x2, float y2, float height)
 	, m_x2(x2)
 	, m_y2(y2)
 	, m_height(height)
-	, m_heightOfRoof(0.5)
+	, m_heightOfRoof(height / 2)
 {
 }
 

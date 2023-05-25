@@ -1,12 +1,17 @@
 #include "CHome.h"
+#include <stdexcept>
 
 CHome::CHome(float x, float y, float height, float width, float lon)
 	: m_positionX(x)
 	, m_positionY(y)
-	, m_height(height)
-	, m_width(width)
-	, m_long(lon)
 {
+	if (height < 1.0 || lon < 1.0 || height < 1.0)
+	{
+		std::runtime_error("wrong house size");
+	}
+	m_height = height;
+	m_width = width;
+	m_long = lon;
 }
 
 void CHome::DrawHome() const
@@ -55,4 +60,21 @@ void CHome::DrawHome() const
 	glEnd();
 	CRoof roof = CRoof(m_positionX, m_positionY, m_positionX + m_long, m_positionY + m_width, m_height);
 	roof.Draw();
+	if (m_porches.size() > 0)
+	{
+		for (const auto& porch : m_porches)
+		{
+			porch.Draw();
+		}
+	}
+}
+
+void CHome::AddPorch()
+{
+	m_porches.push_back(CPorch(0.0, 0.0));
+}
+
+void CHome::SetPorchPosition(float x, float y, int countOfPorch)
+{
+	m_porches[countOfPorch - 1].SetPosition(x, y);
 }

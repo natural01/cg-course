@@ -1,11 +1,19 @@
 #include "CMap.h"
+#include "glm/glm.hpp"
 
 CMap::CMap()
 {
+	m_home.AddPorch();
+	m_home.SetPorchPosition(0.0, 0.0, 1);
 }
 
 void CMap::DrawMap() const
 {
+	GLfloat frontColor[] = { 0, 0, 0, 1 };
+	glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, frontColor);
+	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 1);
+
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
@@ -30,6 +38,7 @@ void CMap::DrawMap() const
 		glVertex3fv(vertices[1]);
 		glEnd();
 	}
+
 	m_home.DrawHome();
 	m_garage.DrawHome();
 	m_fence.DrawFence();
