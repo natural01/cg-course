@@ -21,6 +21,10 @@ CCottageApplication::CCottageApplication(const char* title, int width, int heigh
 	LoadTexture(L"roof.jpg", 2);
 	LoadTexture(L"gable.jpg", 3);
 	LoadTexture(L"fence.jpg", 4);
+	LoadTexture(L"porch.jpg", 5);
+	LoadTexture(L"door.jpg", 6);
+	LoadTexture(L"window.jpg", 7);
+	LoadTexture(L"gates.jpg", 8);
 
 }
 
@@ -57,6 +61,10 @@ void CCottageApplication::OnInit()
 	glLineWidth(2);
 	glClearColor(1, 1, 1, 1);
 
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_COLOR_MATERIAL);
+
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 	glFrontFace(GL_CCW);
@@ -67,6 +75,7 @@ void CCottageApplication::OnInit()
 void CCottageApplication::OnDisplay()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glNormal3f(0, 0, 1);
 
 	SetupCamera();
 

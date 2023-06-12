@@ -1,7 +1,8 @@
 #include "ÑRoof.h"
+#include "CDoor.h"
 
 #pragma once
-class CPorch
+class CPorch 
 {
 public:
 	CPorch(float x, float y);

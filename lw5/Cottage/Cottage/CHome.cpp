@@ -58,23 +58,84 @@ void CHome::DrawHome() const
 		}
 	}
 	glEnd();
-	CRoof roof = CRoof(m_positionX, m_positionY, m_positionX + m_long, m_positionY + m_width, m_height);
-	roof.Draw();
-	if (m_porches.size() > 0)
-	{
-		for (const auto& porch : m_porches)
-		{
-			porch.Draw();
-		}
-	}
+	DrawRoof();
+	DrawPorch();
+	DrawDoor();
+	DrawWindow();
+	DrawGates();
 }
 
 void CHome::AddPorch()
 {
-	m_porches.push_back(CPorch(0.0, 0.0));
+	m_porches.push_back(std::make_unique<CPorch>(0.0, 0.0));
+}
+
+void CHome::AddDoor(float x1, float y1, float x2, float y2)
+{
+	m_doors.push_back(std::make_unique<CDoor>(x1, y1, x2, y2));
+}
+
+void CHome::AddWindow(float x1, float y1, float x2, float y2)
+{
+	m_windows.push_back(std::make_unique<CWindow>(x1, y1, x2, y2));
+}
+
+void CHome::AddGate(float x1, float y1, float x2, float y2)
+{
+	m_gates.push_back(std::make_unique<CGate>(x1, y1, x2, y2, m_height - 0.1));
+}
+
+void CHome::DrawPorch() const
+{
+	if (m_porches.size() > 0)
+	{
+		for (const auto& porch : m_porches)
+		{
+			porch->Draw();
+		}
+	}
+}
+
+void CHome::DrawRoof() const
+{
+	CRoof roof = CRoof(m_positionX, m_positionY, m_positionX + m_long, m_positionY + m_width, m_height);
+	roof.Draw();
+}
+
+void CHome::DrawDoor() const
+{
+	if (m_doors.size() > 0)
+	{
+		for (const auto& door : m_doors)
+		{
+			door->Draw();
+		}
+	}
+}
+
+void CHome::DrawWindow() const
+{
+	if (m_windows.size() > 0)
+	{
+		for (const auto& window : m_windows)
+		{
+			window->Draw();
+		}
+	}
+}
+
+void CHome::DrawGates() const
+{
+	if (m_gates.size() > 0)
+	{
+		for (const auto& gate: m_gates)
+		{
+			gate->Draw();
+		}
+	}
 }
 
 void CHome::SetPorchPosition(float x, float y, int countOfPorch)
 {
-	m_porches[countOfPorch - 1].SetPosition(x, y);
+	m_porches[countOfPorch - 1]->SetPosition(x, y);
 }
